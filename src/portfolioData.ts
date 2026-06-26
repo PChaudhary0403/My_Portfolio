@@ -1,3 +1,5 @@
+import avatarImg from "./assets/Screenshot.png";
+
 export interface EducationItem {
   degree: string;
   major: string;
@@ -64,17 +66,18 @@ export const portfolioData: PortfolioData = {
   title: "Software Developer",
   subtitle: "Building elegant solutions to complex problems.",
   bio: "A passionate Computer Science student focusing on modern web architecture, cloud systems, and user-centric design. Seeking internship and junior engineering opportunities to apply academic foundations to real-world engineering challenges.",
-  
+
   aboutDetails: {
     story: "I'm currently pursuing my Bachelor's degree in Computer Science. My journey into programming started with building small script calculators and automating tasks, which quickly blossomed into a deep love for web engineering and systems design. I thrive in collaborative envionments and love learning new technologies, debugging complex problems, and designing clean user experiences.",
-    avatarUrl: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=300&h=300", // High quality professional placeholder avatar
+    avatarUrl: avatarImg, // High quality professional placeholder avatar
+
     quickStats: [
       { label: "Current GPA", value: "7.55 / 10.0" },
       { label: "Completed Projects", value: "12+" },
       { label: "Years Coding", value: "3+" }
     ]
   },
-  
+
   education: [
     {
       degree: "Bachelor of Science",
@@ -96,7 +99,7 @@ export const portfolioData: PortfolioData = {
       ]
     },
   ],
-  
+
   skills: [
     {
       title: "Languages",
@@ -137,7 +140,7 @@ export const portfolioData: PortfolioData = {
       ]
     }
   ],
-  
+
   projects: [
     {
       id: "proj1",
@@ -195,7 +198,7 @@ export const portfolioData: PortfolioData = {
       featured: false
     }
   ],
-  
+
   careerGoals: {
     aim: "My core objective is to grow into a versatile Staff Engineer capable of architecting scalable distributed systems and leading cross-functional engineering teams. I aim to bridge the gap between robust system performance and delightful user experience, specifically focus on cloud infrastructure, backend optimization, and interactive web technologies.",
     objectives: [
@@ -205,7 +208,7 @@ export const portfolioData: PortfolioData = {
       "Collaborate in cross-disciplinary teams to build solutions resolving real-world societal problems."
     ]
   },
-  
+
   currentlyLearning: [
     {
       topic: "System Design & Distributed Architectures",
@@ -232,7 +235,7 @@ export const portfolioData: PortfolioData = {
       status: "Exploring"
     }
   ],
-  
+
   contact: {
     email: "pankajchaudhary0403@gmail.com",
     github: "https://github.com/PChaudhary0403",
