@@ -1,4 +1,4 @@
-import { ArrowRight, FileText, ChevronRight, Sparkles } from "lucide-react";
+import { ArrowRight, FileText, ChevronRight } from "lucide-react";
 import { portfolioData } from "../portfolioData";
 
 export default function Hero() {
