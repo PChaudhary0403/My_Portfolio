@@ -3,6 +3,7 @@ import { Mail, MapPin, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { Github, Linkedin } from "./SocialIcons";
 import { portfolioData } from "../portfolioData";
 
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -10,7 +11,7 @@ export default function Contact() {
     subject: "",
     message: "",
   });
-  
+
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -24,7 +25,7 @@ export default function Contact() {
     }
     if (!formData.subject.trim()) newErrors.subject = "Subject is required";
     if (!formData.message.trim()) newErrors.message = "Message is required";
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -48,7 +49,7 @@ export default function Contact() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: "YOUR_ACCESS_KEY_HERE", // Replace with your Web3Forms access key
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY, // Access key from environment variables
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
@@ -119,7 +120,7 @@ export default function Contact() {
 
         {/* Contact Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* Left Side: Contact Methods & Cards */}
           <div className="lg:col-span-5 space-y-6 text-left">
             <div className="space-y-3">
@@ -167,7 +168,7 @@ export default function Contact() {
           {/* Right Side: Message Form */}
           <div className="lg:col-span-7">
             <div className="glass-panel p-6 sm:p-8 rounded-2xl shadow-xl text-left relative overflow-hidden">
-              
+
               {/* Form Success Banner Overlay */}
               {status === "success" && (
                 <div className="absolute inset-0 bg-gray-950/95 backdrop-blur-sm z-20 flex flex-col items-center justify-center p-6 text-center animate-fade-in">
@@ -223,9 +224,8 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="John Doe"
-                      className={`w-full px-4 py-3 rounded-xl bg-gray-950 border text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-indigo-500/80 transition-colors ${
-                        errors.name ? "border-red-500/50" : "border-gray-800"
-                      }`}
+                      className={`w-full px-4 py-3 rounded-xl bg-gray-950 border text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-indigo-500/80 transition-colors ${errors.name ? "border-red-500/50" : "border-gray-800"
+                        }`}
                     />
                     {errors.name && (
                       <span className="text-[10px] text-red-400 flex items-center mt-1">
@@ -246,9 +246,8 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="johndoe@example.com"
-                      className={`w-full px-4 py-3 rounded-xl bg-gray-950 border text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-indigo-500/80 transition-colors ${
-                        errors.email ? "border-red-500/50" : "border-gray-800"
-                      }`}
+                      className={`w-full px-4 py-3 rounded-xl bg-gray-950 border text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-indigo-500/80 transition-colors ${errors.email ? "border-red-500/50" : "border-gray-800"
+                        }`}
                     />
                     {errors.email && (
                       <span className="text-[10px] text-red-400 flex items-center mt-1">
@@ -270,9 +269,8 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="Internship / Freelance Opportunities"
-                    className={`w-full px-4 py-3 rounded-xl bg-gray-950 border text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-indigo-500/80 transition-colors ${
-                      errors.subject ? "border-red-500/50" : "border-gray-800"
-                    }`}
+                    className={`w-full px-4 py-3 rounded-xl bg-gray-950 border text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-indigo-500/80 transition-colors ${errors.subject ? "border-red-500/50" : "border-gray-800"
+                      }`}
                   />
                   {errors.subject && (
                     <span className="text-[10px] text-red-400 flex items-center mt-1">
@@ -293,9 +291,8 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Hello! I would love to discuss a project with you..."
-                    className={`w-full px-4 py-3 rounded-xl bg-gray-950 border text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-indigo-500/80 transition-colors resize-none ${
-                      errors.message ? "border-red-500/50" : "border-gray-800"
-                    }`}
+                    className={`w-full px-4 py-3 rounded-xl bg-gray-950 border text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-indigo-500/80 transition-colors resize-none ${errors.message ? "border-red-500/50" : "border-gray-800"
+                      }`}
                   />
                   {errors.message && (
                     <span className="text-[10px] text-red-400 flex items-center mt-1">
