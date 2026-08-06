@@ -175,7 +175,7 @@ export const portfolioData: PortfolioData = {
         "Framer Motion"
       ],
       githubUrl: "https://github.com/placeholder/chessmaster",
-      liveUrl: "https://chessmaster-demo.vercel.app",
+      liveUrl: "https://ai-chess-dun.vercel.app/",
       category: "Frontend",
       featured: true
     },
