@@ -144,59 +144,72 @@ export const portfolioData: PortfolioData = {
   projects: [
     {
       id: "proj1",
-      title: "EduSphere - Collaborative Learning Platform",
-      description: "A full-featured virtual workspace for students enabling real-time notes sharing, whiteboards, video calling, and task organization.",
-      longDescription: "EduSphere is a modern SaaS platform designed to facilitate real-time study groups. Built with Next.js, WebSockets, and Express, it features rich text collaborative editors, custom virtual classrooms, and a dynamic dashboard to organize coursework assignments. Fully responsive with glassmorphic design and highly optimized database queries.",
-      technologies: ["React", "TypeScript", "Node.js", "Socket.io", "MongoDB", "Tailwind CSS"],
-      githubUrl: "https://github.com/placeholder/edusphere",
-      liveUrl: "https://edusphere-demo.vercel.app",
+      title: "ChatterBox - Real-Time Messaging Platform",
+      description: "A modern real-time chat application with secure authentication, instant messaging, online presence, and responsive user experience.",
+      longDescription: "ChatterBox is a full-stack real-time messaging platform built to replicate the core experience of modern chat applications. It features secure JWT authentication, instant one-to-one messaging powered by WebSockets, user presence indicators, message persistence, and a clean responsive interface. The application is optimized for low-latency communication and provides a seamless chatting experience across desktop and mobile devices.",
+      technologies: [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "Express.js",
+        "Socket.io",
+        "MongoDB",
+        "JWT",
+        "Tailwind CSS"
+      ],
+      githubUrl: "https://github.com/PChaudhary0403/Chatter_Box",
+      liveUrl: "https://chatter-box-nu.vercel.app/",
       category: "Full Stack",
       featured: true
     },
     {
       id: "proj2",
-      title: "Algoverse - Visual Algorithm Sandbox",
-      description: "An interactive, web-based visualization tool for sorting, pathfinding, and graph search algorithms with step-by-step debugger controls.",
-      longDescription: "Algoverse is an educational tool constructed to help CS students visualize complex data structures and algorithms. Built with React and TypeScript, it supports sorting algorithms (Quick, Merge, Heap), pathfinding algorithms (Dijkstra, A*, DFS/BFS), and dynamic runtime complexity graphs. Includes speed control, customizable array sizes, and obstacle drawing boards.",
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Canvas API", "Framer Motion"],
-      githubUrl: "https://github.com/placeholder/algoverse",
-      liveUrl: "https://algoverse-visuals.netlify.app",
+      title: "ChessMaster - Interactive Chess Game",
+      description: "A feature-rich web-based chess game implementing official chess rules, move validation, and an intuitive user interface for an engaging gameplay experience.",
+      longDescription: "ChessMaster is a modern chess application built from the ground up with a focus on game logic and user experience. It accurately implements official chess mechanics including legal move validation, castling, en passant, pawn promotion, check, checkmate, and stalemate detection. The application features a responsive interface, move history, captured pieces tracking, game reset functionality, and smooth piece animations, providing a realistic and enjoyable chess experience across devices.",
+      technologies: [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "JavaScript",
+        "Framer Motion"
+      ],
+      githubUrl: "https://github.com/placeholder/chessmaster",
+      liveUrl: "https://chessmaster-demo.vercel.app",
       category: "Frontend",
       featured: true
     },
     {
       id: "proj3",
-      title: "DevPulse - GitHub Metrics Dashboard",
-      description: "A developer analytics tool tracking repository contributions, code impact, commit frequencies, and automated work reviews.",
-      longDescription: "DevPulse interfaces with the GitHub GraphQL API to compile advanced engineering metrics for developer teams. Created to analyze developer performance, code review velocity, and release cycles, presenting results via interactive charts and downloadable PDF reports.",
-      technologies: ["React", "GraphQL", "ChartJS", "Node.js", "PostgreSQL", "Tailwind CSS"],
-      githubUrl: "https://github.com/placeholder/devpulse",
-      liveUrl: "https://devpulse-metrics.vercel.app",
-      category: "Full Stack",
-      featured: true
-    },
-    {
-      id: "proj4",
-      title: "MicroOS Shell & Virtual File System",
-      description: "A lightweight Unix-like shell interpreter and hierarchical file system simulator written in C++ for Unix terminals.",
-      longDescription: "A systems programming project simulating standard terminal utilities (ls, cd, mkdir, touch, rm, cat) and implementing custom file allocation tables. Handles directory structures, file descriptors, permission nodes, and command piping simulation inside a memory-mapped file block.",
+      title: "Breast Cancer Detection using Deep Learning",
+      description: "An AI-powered medical image classification system that detects breast cancer from mammogram images using deep learning to assist in early diagnosis.",
+      longDescription: "This deep learning application was developed to support the early detection of breast cancer through automated thermal image analysis. The system employs a two-stage deep learning pipeline, utilizing U-Net++ for precise breast region segmentation and EfficientNet-B4 for classifying segmented thermal images into Benign, Malignant, and Non-Medical categories. The model integrates image preprocessing, data augmentation, and transfer learning to improve prediction accuracy and robustness. A user-friendly web interface enables users to upload thermal images and receive real-time classification results, making the solution valuable for research, educational purposes, and AI-assisted healthcare applications.",
       technologies: ["C++", "Make", "GDB", "Valgrind", "Linux Systems API"],
-      githubUrl: "https://github.com/placeholder/micro-shell",
-      liveUrl: "https://github.com/placeholder/micro-shell#documentation",
+      githubUrl: "https://github.com/PChaudhary0403/BreastCancerdetection",
+      liveUrl: "https://breast-cancerdetection.vercel.app/",
       category: "Systems",
       featured: false
     },
     {
-      id: "proj5",
-      title: "QuickTask - Kanban Planner App",
-      description: "A minimalist desktop-first task management application with drag-and-drop support, subtask checklists, and productivity stats.",
-      longDescription: "A frontend task manager focusing on sleek animations and intuitive UX. Built with React and local storage integration, featuring quick-create cards, drag-and-drop swimlanes, tag filters, and customizable color themes.",
-      technologies: ["React", "HTML5 Drag-Drop", "CSS Variables", "Local Storage"],
-      githubUrl: "https://github.com/placeholder/quicktask",
-      liveUrl: "https://quicktask-kanban.netlify.app",
-      category: "Frontend",
-      featured: false
-    }
+      id: "proj4",
+      title: "JanSeva - Civic Grievance Portal",
+      description: "A full-stack civic grievance management platform enabling citizens to file, track, and manage complaints with automated assignment, escalation, and role-based dashboards.",
+      longDescription: "JanSeva is a scalable civic grievance portal designed to streamline communication between citizens and government authorities. The platform features secure role-based authentication for citizens, authorities, and administrators, allowing users to file complaints with evidence, track their status in real time, and provide resolution feedback. It incorporates automatic complaint assignment based on department and location, configurable escalation workflows for overdue cases, and dedicated dashboards with performance metrics. Built using Next.js, PostgreSQL, and Prisma ORM, the application delivers a responsive and production-ready experience across desktop and mobile devices.",
+      technologies: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "Prisma ORM",
+        "NextAuth.js",
+        "Tailwind CSS",
+        "Radix UI"
+      ],
+      githubUrl: "https://github.com/PChaudhary0403/public_portal",
+      liveUrl: "https://public-portal-five.vercel.app/",
+      category: "Full Stack",
+      featured: true
+    },
   ],
 
   careerGoals: {
