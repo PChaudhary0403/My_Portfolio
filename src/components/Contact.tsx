@@ -3,6 +3,56 @@ import { Mail, MapPin, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { Github, Linkedin } from "./SocialIcons";
 import { portfolioData } from "../portfolioData";
 
+const MONTHLY_REQUEST_LIMIT = 250;
+const MONTHLY_LIMIT_STORAGE_KEY = "portfolio-contact-monthly-submissions";
+
+type MonthlySubmissionState = {
+  month: string;
+  count: number;
+};
+
+const getCurrentMonthKey = () => {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+};
+
+const getMonthlySubmissionState = (): MonthlySubmissionState => {
+  const currentMonth = getCurrentMonthKey();
+
+  if (typeof window === "undefined") {
+    return { month: currentMonth, count: 0 };
+  }
+
+  try {
+    const rawState = window.localStorage.getItem(MONTHLY_LIMIT_STORAGE_KEY);
+
+    if (!rawState) {
+      return { month: currentMonth, count: 0 };
+    }
+
+    const parsedState = JSON.parse(rawState) as Partial<MonthlySubmissionState>;
+
+    if (parsedState.month !== currentMonth) {
+      return { month: currentMonth, count: 0 };
+    }
+
+    return {
+      month: currentMonth,
+      count: typeof parsedState.count === "number" ? parsedState.count : 0,
+    };
+  } catch {
+    return { month: currentMonth, count: 0 };
+  }
+};
+
+const saveMonthlySubmissionState = (state: MonthlySubmissionState) => {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  window.localStorage.setItem(MONTHLY_LIMIT_STORAGE_KEY, JSON.stringify(state));
+};
+
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -14,6 +64,7 @@ export default function Contact() {
 
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [monthlySubmissionCount, setMonthlySubmissionCount] = useState(() => getMonthlySubmissionState().count);
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -42,6 +93,25 @@ export default function Contact() {
     e.preventDefault();
     if (!validateForm()) return;
 
+    const submissionState = getMonthlySubmissionState();
+    if (submissionState.count >= MONTHLY_REQUEST_LIMIT) {
+      setErrors((prev) => ({
+        ...prev,
+        form: `Monthly limit reached. This form allows ${MONTHLY_REQUEST_LIMIT} submissions per month.`,
+      }));
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+      return;
+    }
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      console.error("Web3Forms Access Key is missing. Please set VITE_WEB3FORMS_ACCESS_KEY in your environment variables.");
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+      return;
+    }
+
     setStatus("sending");
 
     try {
@@ -49,7 +119,7 @@ export default function Contact() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY, // Access key from environment variables
+          access_key: accessKey, // Access key from environment variables
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
@@ -61,6 +131,13 @@ export default function Contact() {
       const result = await response.json();
 
       if (result.success) {
+        const nextSubmissionState = {
+          month: getCurrentMonthKey(),
+          count: submissionState.count + 1,
+        };
+
+        saveMonthlySubmissionState(nextSubmissionState);
+        setMonthlySubmissionCount(nextSubmissionState.count);
         setStatus("success");
         setFormData({ name: "", email: "", subject: "", message: "" });
         // Reset success message after 5 seconds
@@ -209,6 +286,12 @@ export default function Contact() {
 
               <h3 className="text-lg font-bold text-gray-200 mb-6">Send Me a Message</h3>
 
+              {errors.form && (
+                <div className="mb-5 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+                  {errors.form}
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Name & Email Group */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -304,10 +387,15 @@ export default function Contact() {
                 {/* Submit button */}
                 <button
                   type="submit"
-                  disabled={status === "sending"}
+                  disabled={status === "sending" || monthlySubmissionCount >= MONTHLY_REQUEST_LIMIT}
                   className="w-full flex items-center justify-center space-x-2 py-3.5 px-6 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm transition-all duration-200 shadow-md shadow-indigo-600/10 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                 >
-                  {status === "sending" ? (
+                  {monthlySubmissionCount >= MONTHLY_REQUEST_LIMIT ? (
+                    <>
+                      <AlertCircle size={15} />
+                      <span>Monthly Limit Reached</span>
+                    </>
+                  ) : status === "sending" ? (
                     <>
                       <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-1.5" />
                       <span>Sending Message...</span>
@@ -319,6 +407,10 @@ export default function Contact() {
                     </>
                   )}
                 </button>
+
+                <p className="text-[11px] text-gray-500 font-mono text-center">
+                  {monthlySubmissionCount}/{MONTHLY_REQUEST_LIMIT} submissions used this month
+                </p>
               </form>
 
             </div>

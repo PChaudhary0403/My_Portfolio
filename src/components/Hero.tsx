@@ -86,11 +86,8 @@ export default function Hero() {
             </button>
 
             <a
-              href="#resume"
-              onClick={(e) => {
-                e.preventDefault();
-                alert("Placeholder: Replace this link with your actual resume PDF download.");
-              }}
+              href="/MyResume (2).pdf"
+              download="Pankaj_Chaudhary_CV.pdf"
               className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-gray-950 hover:bg-gray-900 text-gray-400 hover:text-white border border-dashed border-gray-800 hover:border-indigo-500/40 font-medium transition-all duration-200 cursor-pointer"
             >
               <FileText size={16} className="mr-2" />
