@@ -72,7 +72,7 @@ export const portfolioData: PortfolioData = {
     avatarUrl: avatarImg, // High quality professional placeholder avatar
 
     quickStats: [
-      { label: "Current GPA", value: "7.55 / 10.0" },
+      { label: "CGPA", value: "7.64 / 10.0" },
       { label: "Completed Projects", value: "12+" },
       { label: "Years Coding", value: "3+" }
     ]
