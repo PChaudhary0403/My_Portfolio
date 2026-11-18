@@ -1,3 +1,4 @@
+import React from 'react';
 import * as Icons from 'lucide-react';
 
 interface SkillIconProps {
@@ -8,7 +9,8 @@ interface SkillIconProps {
 
 export default function SkillIcon({ name, className, size }: SkillIconProps) {
   // Map some custom name matches if needed, otherwise grab from Lucide export
-  const LucideIcon = (Icons as any)[name];
+  const iconMap = Icons as unknown as Record<string, React.ComponentType<{ className?: string; size?: number }>>;
+  const LucideIcon = iconMap[name];
   
   if (!LucideIcon) {
     // Return a default icon if not found

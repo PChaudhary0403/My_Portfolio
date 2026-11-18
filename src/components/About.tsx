@@ -10,15 +10,15 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-[#070b19]/40 relative border-t border-gray-900/50">
+    <section id="about" className="py-20 bg-gray-50/50 dark:bg-[#070b19]/40 relative border-t border-gray-200/80 dark:border-gray-900/50">
       <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-indigo-500/5 blur-3xl" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase">About Me</h2>
-          <p className="text-3xl sm:text-4xl font-extrabold mt-3 text-white">My Journey & Background</p>
-          <div className="w-12 h-1 bg-indigo-500 rounded-full mx-auto mt-4" />
+          <h2 className="text-xs font-mono font-bold tracking-widest text-indigo-600 dark:text-indigo-400 uppercase">About Me</h2>
+          <p className="text-3xl sm:text-4xl font-extrabold mt-3 text-gray-900 dark:text-white">My Journey & Background</p>
+          <div className="w-12 h-1 bg-indigo-600 dark:bg-indigo-500 rounded-full mx-auto mt-4" />
         </div>
 
         {/* Content Grid */}
@@ -27,17 +27,17 @@ export default function About() {
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative group">
               {/* Outer decorative ring */}
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-500 opacity-30 blur-md group-hover:opacity-60 transition duration-1000 group-hover:duration-200" />
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-500 opacity-25 dark:opacity-30 blur-md group-hover:opacity-50 dark:group-hover:opacity-60 transition duration-1000 group-hover:duration-200" />
               
               {/* Main container */}
-              <div className="relative rounded-2xl overflow-hidden border border-gray-800 bg-[#0d1117] p-3 shadow-2xl">
+              <div className="relative rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0d1117] p-3 shadow-xl dark:shadow-2xl">
                 <img
                   src={portfolioData.aboutDetails.avatarUrl}
                   alt={`${portfolioData.name}'s Avatar`}
                   className="w-full max-w-[280px] h-[280px] object-cover rounded-xl grayscale hover:grayscale-0 transition-all duration-500 ease-in-out"
                 />
                 <div className="mt-4 text-center">
-                  <span className="text-xs font-mono text-indigo-400 font-semibold uppercase tracking-wider block">
+                  <span className="text-xs font-mono text-indigo-600 dark:text-indigo-400 font-semibold uppercase tracking-wider block">
                     {portfolioData.title}
                   </span>
                   <span className="text-xs text-gray-500 mt-1 block">
@@ -50,23 +50,23 @@ export default function About() {
 
           {/* Bio and Info Area */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            <h3 className="text-2xl font-bold text-gray-100">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
               Passionate about building software that makes a difference.
             </h3>
             
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
               {portfolioData.aboutDetails.story}
             </p>
 
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
               As a student, I actively seek out challenging projects that push me to learn outside my comfort zone. I enjoy developing high-performance algorithms, exploring systems programing, and implementing elegant frontend interfaces.
             </p>
 
             {/* Quick Details List */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-gray-800/80">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-gray-200 dark:border-gray-800/80">
               {infoItems.map((item, idx) => (
-                <div key={idx} className="flex items-center space-x-3 text-sm text-gray-300">
-                  <div className="p-2 rounded-lg bg-gray-900 border border-gray-800/60 text-indigo-400 shrink-0">
+                <div key={idx} className="flex items-center space-x-3 text-sm text-gray-700 dark:text-gray-300">
+                  <div className="p-2 rounded-lg bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800/60 text-indigo-600 dark:text-indigo-400 shrink-0">
                     {item.icon}
                   </div>
                   <div>
@@ -74,12 +74,12 @@ export default function About() {
                     {item.isLink ? (
                       <a
                         href={item.href}
-                        className="text-gray-200 hover:text-indigo-400 transition-colors font-medium break-all"
+                        className="text-gray-800 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium break-all"
                       >
                         {item.value}
                       </a>
                     ) : (
-                      <span className="text-gray-200 font-medium">{item.value}</span>
+                      <span className="text-gray-800 dark:text-gray-200 font-medium">{item.value}</span>
                     )}
                   </div>
                 </div>
@@ -87,7 +87,7 @@ export default function About() {
             </div>
 
             {/* Quote / Highlight */}
-            <div className="p-4 rounded-xl bg-indigo-950/20 border-l-4 border-indigo-500/80 text-gray-300 text-sm italic">
+            <div className="p-4 rounded-xl bg-indigo-50/70 dark:bg-indigo-950/20 border-l-4 border-indigo-600 dark:border-indigo-500 text-gray-700 dark:text-gray-300 text-sm italic">
               "Great developers are not born; they are compiled one project at a time."
             </div>
           </div>

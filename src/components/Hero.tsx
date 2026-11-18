@@ -24,29 +24,29 @@ export default function Hero() {
       className="relative min-h-screen pt-28 flex items-center justify-center bg-grid-pattern overflow-hidden"
     >
       {/* Decorative Blur Orbs */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-indigo-600/10 blur-3xl animate-pulse-slow z-0" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 rounded-full bg-purple-600/10 blur-3xl animate-pulse-slow z-0" />
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-indigo-500/15 dark:bg-indigo-600/10 blur-3xl animate-pulse-slow z-0" />
+      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 rounded-full bg-purple-500/15 dark:bg-purple-600/10 blur-3xl animate-pulse-slow z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-12">
         {/* Left Column - Copy */}
         <div className="lg:col-span-7 space-y-6 text-left">
           {/* Status Badge */}
-          <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-mono">
+          <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/30 text-indigo-700 dark:text-indigo-300 text-xs font-mono">
             <span>Open for Internship & Freelance Opportunities</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white">
             Hi, I'm{" "}
             <span className="text-gradient">
               {portfolioData.name} {portfolioData.lastName}
             </span>
           </h1>
 
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-300">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700 dark:text-gray-300">
             {portfolioData.title}
           </h2>
 
-          <p className="text-base sm:text-lg text-gray-400 max-w-xl leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
             {portfolioData.bio}
           </p>
 
@@ -55,12 +55,12 @@ export default function Hero() {
             {portfolioData.aboutDetails.quickStats.map((stat, idx) => (
               <div
                 key={idx}
-                className="p-3 rounded-xl bg-gray-900/40 border border-gray-800/80 backdrop-blur-sm hover:border-gray-700/50 transition-colors"
+                className="p-3 rounded-xl bg-white/80 dark:bg-gray-900/40 border border-gray-200/90 dark:border-gray-800/80 backdrop-blur-sm hover:border-indigo-300 dark:hover:border-gray-700/50 shadow-sm dark:shadow-none transition-colors"
               >
-                <div className="text-lg sm:text-xl font-bold text-indigo-400">
+                <div className="text-lg sm:text-xl font-bold text-indigo-600 dark:text-indigo-400">
                   {stat.value}
                 </div>
-                <div className="text-xs text-gray-400 mt-1">{stat.label}</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -80,7 +80,7 @@ export default function Hero() {
 
             <button
               onClick={() => handleScrollTo("contact")}
-              className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-gray-900 hover:bg-gray-800 text-gray-200 border border-gray-800 hover:border-gray-700 font-medium transition-all duration-200 active:scale-98 cursor-pointer"
+              className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-white hover:bg-gray-50 text-gray-800 border border-gray-200 hover:border-gray-300 shadow-sm dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-gray-200 dark:border-gray-800 dark:hover:border-gray-700 dark:shadow-none font-medium transition-all duration-200 active:scale-98 cursor-pointer"
             >
               <span>Get in Touch</span>
             </button>
@@ -88,7 +88,7 @@ export default function Hero() {
             <a
               href="/PankajChaudhary_Resume.pdf"
               download="Pankaj_Chaudhary_CV.pdf"
-              className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-gray-950 hover:bg-gray-900 text-gray-400 hover:text-white border border-dashed border-gray-800 hover:border-indigo-500/40 font-medium transition-all duration-200 cursor-pointer"
+              className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-gray-50 hover:bg-gray-100 text-gray-700 hover:text-gray-900 border border-dashed border-gray-300 hover:border-indigo-500/40 dark:bg-gray-950 dark:hover:bg-gray-900 dark:text-gray-400 dark:hover:text-white dark:border-gray-800 font-medium transition-all duration-200 cursor-pointer shadow-sm dark:shadow-none"
             >
               <FileText size={16} className="mr-2" />
               <span>Download CV</span>
@@ -98,76 +98,76 @@ export default function Hero() {
 
         {/* Right Column - Visual Code Terminal Mockup */}
         <div className="lg:col-span-5 w-full max-w-lg mx-auto lg:mx-0 animate-float z-10">
-          <div className="w-full rounded-2xl border border-gray-800 bg-[#0d1117]/90 shadow-2xl overflow-hidden font-mono text-xs sm:text-sm text-left">
+          <div className="w-full rounded-2xl border border-gray-200/90 dark:border-gray-800 bg-white/95 dark:bg-[#0d1117]/90 shadow-2xl overflow-hidden font-mono text-xs sm:text-sm text-left">
             {/* Terminal Top bar */}
-            <div className="flex items-center justify-between px-4 py-3 bg-[#161b22] border-b border-gray-800">
+            <div className="flex items-center justify-between px-4 py-3 bg-gray-100/90 dark:bg-[#161b22] border-b border-gray-200/90 dark:border-gray-800">
               <div className="flex space-x-2">
                 <span className="w-3 h-3 rounded-full bg-red-500/80 block" />
                 <span className="w-3 h-3 rounded-full bg-yellow-500/80 block" />
                 <span className="w-3 h-3 rounded-full bg-green-500/80 block" />
               </div>
-              <span className="text-gray-400 text-xs font-mono">DeveloperInfo.ts</span>
+              <span className="text-gray-500 dark:text-gray-400 text-xs font-mono">DeveloperInfo.ts</span>
               <div className="w-12" /> {/* Spacer */}
             </div>
 
             {/* Terminal Body */}
-            <div className="p-5 sm:p-6 space-y-2.5 overflow-x-auto text-gray-300">
+            <div className="p-5 sm:p-6 space-y-2.5 overflow-x-auto text-gray-700 dark:text-gray-300">
               <div>
-                <span className="text-purple-400">const</span>{" "}
-                <span className="text-blue-400">developer</span>{" "}
-                <span className="text-gray-400">=</span>{" "}
-                <span className="text-yellow-300">{"{"}</span>
+                <span className="text-purple-600 dark:text-purple-400">const</span>{" "}
+                <span className="text-blue-600 dark:text-blue-400">developer</span>{" "}
+                <span className="text-gray-500 dark:text-gray-400">=</span>{" "}
+                <span className="text-amber-600 dark:text-yellow-300">{"{"}</span>
               </div>
               <div className="pl-4">
-                <span className="text-gray-400">name:</span>{" "}
-                <span className="text-green-300">"Pankaj Chaudhary"</span>,
+                <span className="text-gray-500 dark:text-gray-400">name:</span>{" "}
+                <span className="text-emerald-700 dark:text-green-300">"Pankaj Chaudhary"</span>,
               </div>
               <div className="pl-4">
-                <span className="text-gray-400">role:</span>{" "}
-                <span className="text-green-300">"Software Developer Student"</span>,
+                <span className="text-gray-500 dark:text-gray-400">role:</span>{" "}
+                <span className="text-emerald-700 dark:text-green-300">"Software Developer Student"</span>,
               </div>
               <div className="pl-4">
-                <span className="text-gray-400">focus:</span>{" "}
-                <span className="text-green-300">"Full Stack Web & Cloud Architectures"</span>,
+                <span className="text-gray-500 dark:text-gray-400">focus:</span>{" "}
+                <span className="text-emerald-700 dark:text-green-300">"Full Stack Web & Cloud Architectures"</span>,
               </div>
               <div className="pl-4">
-                <span className="text-gray-400">location:</span>{" "}
-                <span className="text-green-300">"Mumbai,Maharashtra"</span>,
+                <span className="text-gray-500 dark:text-gray-400">location:</span>{" "}
+                <span className="text-emerald-700 dark:text-green-300">"Mumbai, Maharashtra"</span>,
               </div>
               <div className="pl-4">
-                <span className="text-gray-400">traits:</span>{" "}
-                <span className="text-cyan-400">{"["}</span>
-                <span className="text-green-300">"Problem Solver"</span>,{" "}
-                <span className="text-green-300">"Lifelong Learner"</span>
-                <span className="text-cyan-400">{"]"}</span>,
+                <span className="text-gray-500 dark:text-gray-400">traits:</span>{" "}
+                <span className="text-cyan-700 dark:text-cyan-400">{"["}</span>
+                <span className="text-emerald-700 dark:text-green-300">"Problem Solver"</span>,{" "}
+                <span className="text-emerald-700 dark:text-green-300">"Lifelong Learner"</span>
+                <span className="text-cyan-700 dark:text-cyan-400">{"]"}</span>,
               </div>
               <div className="pl-4">
-                <span className="text-gray-400">currentFocus:</span>{" "}
-                <span className="text-yellow-300">{"{"}</span>
+                <span className="text-gray-500 dark:text-gray-400">currentFocus:</span>{" "}
+                <span className="text-amber-600 dark:text-yellow-300">{"{"}</span>
               </div>
               <div className="pl-8">
-                <span className="text-gray-400">framework:</span>{" "}
-                <span className="text-green-300">"React / Next.js / Node.js"</span>,
+                <span className="text-gray-500 dark:text-gray-400">framework:</span>{" "}
+                <span className="text-emerald-700 dark:text-green-300">"React / Next.js / Node.js"</span>,
               </div>
               <div className="pl-8">
-                <span className="text-gray-400">learning:</span>{" "}
-                <span className="text-green-300">"Distributed Systems & Cloud Security"</span>
+                <span className="text-gray-500 dark:text-gray-400">learning:</span>{" "}
+                <span className="text-emerald-700 dark:text-green-300">"Distributed Systems & Cloud Security"</span>
               </div>
               <div className="pl-4">
-                <span className="text-yellow-300">{"}"}</span>
+                <span className="text-amber-600 dark:text-yellow-300">{"}"}</span>
               </div>
               <div>
-                <span className="text-yellow-300">{"}"}</span>;
+                <span className="text-amber-600 dark:text-yellow-300">{"}"}</span>;
               </div>
 
               {/* Execution Line */}
-              <div className="pt-4 border-t border-gray-800/80 mt-4 flex items-center space-x-2 text-indigo-400">
+              <div className="pt-4 border-t border-gray-200 dark:border-gray-800/80 mt-4 flex items-center space-x-2 text-indigo-600 dark:text-indigo-400">
                 <ChevronRight size={16} />
-                <span className="text-gray-400">developer.</span>
-                <span className="text-blue-300">sayHello</span>
-                <span className="text-gray-400">()</span>
+                <span className="text-gray-500 dark:text-gray-400">developer.</span>
+                <span className="text-blue-600 dark:text-blue-300">sayHello</span>
+                <span className="text-gray-500 dark:text-gray-400">()</span>
               </div>
-              <div className="text-green-400 font-semibold pl-6">
+              <div className="text-emerald-700 dark:text-green-400 font-semibold pl-6">
                 &gt; "Hello! Let's build something amazing together."
               </div>
             </div>

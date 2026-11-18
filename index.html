@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -9,6 +9,22 @@
     content="Portfolio of Pankaj Chaudhary - Software Developer Student seeking internship and full-time opportunities. Showcasing technical skills, academic projects, and career aspirations." />
   <title>Pankaj Chaudhary | Software Developer Portfolio</title>
 
+  <!-- Anti-flicker Theme Initialization -->
+  <script>
+    (function () {
+      try {
+        var storedTheme = localStorage.getItem('portfolio-theme') || localStorage.getItem('theme');
+        if (storedTheme === 'light') {
+          document.documentElement.classList.remove('dark');
+        } else {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +33,7 @@
     rel="stylesheet">
 </head>
 
-<body class="bg-[#030712] text-[#f3f4f6] font-sans antialiased selection:bg-indigo-500 selection:text-white">
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans antialiased selection:bg-indigo-500 selection:text-white transition-colors duration-300">
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>

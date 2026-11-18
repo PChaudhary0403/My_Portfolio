@@ -53,7 +53,6 @@ const saveMonthlySubmissionState = (state: MonthlySubmissionState) => {
   window.localStorage.setItem(MONTHLY_LIMIT_STORAGE_KEY, JSON.stringify(state));
 };
 
-
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -160,7 +159,7 @@ export default function Contact() {
       title: "Email Me Directly",
       value: portfolioData.contact.email,
       href: `mailto:${portfolioData.contact.email}`,
-      color: "hover:text-red-400 hover:border-red-500/30",
+      color: "hover:text-red-500 dark:hover:text-red-400 hover:border-red-500/30",
       cta: "Send an Email",
     },
     {
@@ -176,7 +175,7 @@ export default function Contact() {
       title: "Browse GitHub Repos",
       value: "github.com/" + portfolioData.contact.github.split("/").pop(),
       href: portfolioData.contact.github,
-      color: "hover:text-purple-400 hover:border-purple-500/30",
+      color: "hover:text-purple-600 dark:hover:text-purple-400 hover:border-purple-500/30",
       cta: "Explore Repos",
     },
   ];
@@ -184,15 +183,15 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 relative overflow-hidden">
       {/* Decorative Orbs */}
-      <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-indigo-600/5 blur-3xl z-0" />
-      <div className="absolute top-0 right-1/4 w-80 h-80 rounded-full bg-purple-600/5 blur-3xl z-0" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-indigo-500/5 dark:bg-indigo-600/5 blur-3xl z-0" />
+      <div className="absolute top-0 right-1/4 w-80 h-80 rounded-full bg-purple-500/5 dark:bg-purple-600/5 blur-3xl z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase">Get In Touch</h2>
-          <p className="text-3xl sm:text-4xl font-extrabold mt-3 text-white">Let's Collaborate</p>
-          <div className="w-12 h-1 bg-indigo-500 rounded-full mx-auto mt-4" />
+          <h2 className="text-xs font-mono font-bold tracking-widest text-indigo-600 dark:text-indigo-400 uppercase">Get In Touch</h2>
+          <p className="text-3xl sm:text-4xl font-extrabold mt-3 text-gray-900 dark:text-white">Let's Collaborate</p>
+          <div className="w-12 h-1 bg-indigo-600 dark:bg-indigo-500 rounded-full mx-auto mt-4" />
         </div>
 
         {/* Contact Grid */}
@@ -201,8 +200,8 @@ export default function Contact() {
           {/* Left Side: Contact Methods & Cards */}
           <div className="lg:col-span-5 space-y-6 text-left">
             <div className="space-y-3">
-              <h3 className="text-xl font-bold text-gray-100">Have an interesting project?</h3>
-              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">Have an interesting project?</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed">
                 Whether you have an internship position, a freelance project, or just want to say hi, feel free to drop a message or connect through my social handles. I'll get back to you as soon as possible!
               </p>
             </div>
@@ -215,20 +214,20 @@ export default function Contact() {
                   href={method.href}
                   target="_blank"
                   rel="noreferrer"
-                  className={`glass-panel p-5 rounded-xl flex items-center justify-between border border-gray-800/60 transition-all duration-300 group ${method.color}`}
+                  className={`glass-panel p-5 rounded-xl flex items-center justify-between border border-gray-200 dark:border-gray-800/60 transition-all duration-300 group ${method.color}`}
                 >
                   <div className="flex items-center space-x-4">
-                    <div className="p-3 rounded-lg bg-gray-950 text-indigo-400 group-hover:scale-110 transition-transform">
+                    <div className="p-3 rounded-lg bg-gray-100 dark:bg-gray-950 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform">
                       {method.icon}
                     </div>
                     <div>
                       <h4 className="text-xs text-gray-500 font-mono font-semibold uppercase">{method.title}</h4>
-                      <span className="text-sm font-medium text-gray-200 block mt-0.5 break-all">
+                      <span className="text-sm font-medium text-gray-800 dark:text-gray-200 block mt-0.5 break-all">
                         {method.value}
                       </span>
                     </div>
                   </div>
-                  <span className="text-xs font-mono text-indigo-400 font-semibold group-hover:translate-x-1 transition-transform shrink-0 pl-2">
+                  <span className="text-xs font-mono text-indigo-600 dark:text-indigo-400 font-semibold group-hover:translate-x-1 transition-transform shrink-0 pl-2">
                     {method.cta} →
                   </span>
                 </a>
@@ -236,9 +235,9 @@ export default function Contact() {
             </div>
 
             {/* Location indicator */}
-            <div className="flex items-center space-x-3 p-5 rounded-xl bg-gray-950/40 border border-dashed border-gray-800 text-sm text-gray-400">
-              <MapPin size={18} className="text-indigo-400 shrink-0" />
-              <span>Based in: <strong>{portfolioData.contact.location}</strong></span>
+            <div className="flex items-center space-x-3 p-5 rounded-xl bg-gray-50 dark:bg-gray-950/40 border border-dashed border-gray-300 dark:border-gray-800 text-sm text-gray-600 dark:text-gray-400">
+              <MapPin size={18} className="text-indigo-600 dark:text-indigo-400 shrink-0" />
+              <span>Based in: <strong className="text-gray-800 dark:text-gray-200">{portfolioData.contact.location}</strong></span>
             </div>
           </div>
 
@@ -248,12 +247,12 @@ export default function Contact() {
 
               {/* Form Success Banner Overlay */}
               {status === "success" && (
-                <div className="absolute inset-0 bg-gray-950/95 backdrop-blur-sm z-20 flex flex-col items-center justify-center p-6 text-center animate-fade-in">
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-4 animate-bounce">
+                <div className="absolute inset-0 bg-white/95 dark:bg-gray-950/95 backdrop-blur-sm z-20 flex flex-col items-center justify-center p-6 text-center animate-fade-in">
+                  <div className="w-16 h-16 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-300 dark:border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-4 animate-bounce">
                     <CheckCircle2 size={32} />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-100">Message Sent!</h3>
-                  <p className="text-gray-400 text-sm max-w-sm mt-2">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">Message Sent!</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm max-w-sm mt-2">
                     Thank you for reaching out. Your message has been delivered successfully, and I'll get back to you shortly.
                   </p>
                   <button
@@ -267,12 +266,12 @@ export default function Contact() {
 
               {/* Form Error Banner Overlay */}
               {status === "error" && (
-                <div className="absolute inset-0 bg-gray-950/95 backdrop-blur-sm z-20 flex flex-col items-center justify-center p-6 text-center animate-fade-in">
-                  <div className="w-16 h-16 rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 mb-4">
+                <div className="absolute inset-0 bg-white/95 dark:bg-gray-950/95 backdrop-blur-sm z-20 flex flex-col items-center justify-center p-6 text-center animate-fade-in">
+                  <div className="w-16 h-16 rounded-full bg-red-50 dark:bg-red-500/10 border border-red-300 dark:border-red-500/30 flex items-center justify-center text-red-600 dark:text-red-400 mb-4">
                     <AlertCircle size={32} />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-100">Something Went Wrong</h3>
-                  <p className="text-gray-400 text-sm max-w-sm mt-2">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">Something Went Wrong</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm max-w-sm mt-2">
                     Your message could not be sent. Please try again, or reach out directly via email.
                   </p>
                   <button
@@ -284,10 +283,10 @@ export default function Contact() {
                 </div>
               )}
 
-              <h3 className="text-lg font-bold text-gray-200 mb-6">Send Me a Message</h3>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-gray-200 mb-6">Send Me a Message</h3>
 
               {errors.form && (
-                <div className="mb-5 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+                <div className="mb-5 rounded-xl border border-red-300 dark:border-red-500/30 bg-red-50 dark:bg-red-500/10 px-4 py-3 text-sm text-red-700 dark:text-red-200">
                   {errors.form}
                 </div>
               )}
@@ -297,7 +296,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Name field */}
                   <div className="space-y-2">
-                    <label htmlFor="name" className="block text-xs font-mono font-bold text-gray-400 uppercase">
+                    <label htmlFor="name" className="block text-xs font-mono font-bold text-gray-600 dark:text-gray-400 uppercase">
                       Your Name
                     </label>
                     <input
@@ -307,11 +306,12 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="John Doe"
-                      className={`w-full px-4 py-3 rounded-xl bg-gray-950 border text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-indigo-500/80 transition-colors ${errors.name ? "border-red-500/50" : "border-gray-800"
-                        }`}
+                      className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-gray-950 border text-sm text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-indigo-500 transition-colors shadow-sm dark:shadow-none ${
+                        errors.name ? "border-red-500" : "border-gray-200 dark:border-gray-800"
+                      }`}
                     />
                     {errors.name && (
-                      <span className="text-[10px] text-red-400 flex items-center mt-1">
+                      <span className="text-[10px] text-red-600 dark:text-red-400 flex items-center mt-1">
                         <AlertCircle size={10} className="mr-1" /> {errors.name}
                       </span>
                     )}
@@ -319,7 +319,7 @@ export default function Contact() {
 
                   {/* Email field */}
                   <div className="space-y-2">
-                    <label htmlFor="email" className="block text-xs font-mono font-bold text-gray-400 uppercase">
+                    <label htmlFor="email" className="block text-xs font-mono font-bold text-gray-600 dark:text-gray-400 uppercase">
                       Email Address
                     </label>
                     <input
@@ -329,11 +329,12 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="johndoe@example.com"
-                      className={`w-full px-4 py-3 rounded-xl bg-gray-950 border text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-indigo-500/80 transition-colors ${errors.email ? "border-red-500/50" : "border-gray-800"
-                        }`}
+                      className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-gray-950 border text-sm text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-indigo-500 transition-colors shadow-sm dark:shadow-none ${
+                        errors.email ? "border-red-500" : "border-gray-200 dark:border-gray-800"
+                      }`}
                     />
                     {errors.email && (
-                      <span className="text-[10px] text-red-400 flex items-center mt-1">
+                      <span className="text-[10px] text-red-600 dark:text-red-400 flex items-center mt-1">
                         <AlertCircle size={10} className="mr-1" /> {errors.email}
                       </span>
                     )}
@@ -342,7 +343,7 @@ export default function Contact() {
 
                 {/* Subject field */}
                 <div className="space-y-2">
-                  <label htmlFor="subject" className="block text-xs font-mono font-bold text-gray-400 uppercase">
+                  <label htmlFor="subject" className="block text-xs font-mono font-bold text-gray-600 dark:text-gray-400 uppercase">
                     Subject
                   </label>
                   <input
@@ -352,11 +353,12 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="Internship / Freelance Opportunities"
-                    className={`w-full px-4 py-3 rounded-xl bg-gray-950 border text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-indigo-500/80 transition-colors ${errors.subject ? "border-red-500/50" : "border-gray-800"
-                      }`}
+                    className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-gray-950 border text-sm text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-indigo-500 transition-colors shadow-sm dark:shadow-none ${
+                      errors.subject ? "border-red-500" : "border-gray-200 dark:border-gray-800"
+                    }`}
                   />
                   {errors.subject && (
-                    <span className="text-[10px] text-red-400 flex items-center mt-1">
+                    <span className="text-[10px] text-red-600 dark:text-red-400 flex items-center mt-1">
                       <AlertCircle size={10} className="mr-1" /> {errors.subject}
                     </span>
                   )}
@@ -364,7 +366,7 @@ export default function Contact() {
 
                 {/* Message field */}
                 <div className="space-y-2">
-                  <label htmlFor="message" className="block text-xs font-mono font-bold text-gray-400 uppercase">
+                  <label htmlFor="message" className="block text-xs font-mono font-bold text-gray-600 dark:text-gray-400 uppercase">
                     Message
                   </label>
                   <textarea
@@ -374,11 +376,12 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Hello! I would love to discuss a project with you..."
-                    className={`w-full px-4 py-3 rounded-xl bg-gray-950 border text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-indigo-500/80 transition-colors resize-none ${errors.message ? "border-red-500/50" : "border-gray-800"
-                      }`}
+                    className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-gray-950 border text-sm text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-indigo-500 transition-colors resize-none shadow-sm dark:shadow-none ${
+                      errors.message ? "border-red-500" : "border-gray-200 dark:border-gray-800"
+                    }`}
                   />
                   {errors.message && (
-                    <span className="text-[10px] text-red-400 flex items-center mt-1">
+                    <span className="text-[10px] text-red-600 dark:text-red-400 flex items-center mt-1">
                       <AlertCircle size={10} className="mr-1" /> {errors.message}
                     </span>
                   )}
@@ -388,7 +391,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === "sending" || monthlySubmissionCount >= MONTHLY_REQUEST_LIMIT}
-                  className="w-full flex items-center justify-center space-x-2 py-3.5 px-6 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm transition-all duration-200 shadow-md shadow-indigo-600/10 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                  className="w-full flex items-center justify-center space-x-2 py-3.5 px-6 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm transition-all duration-200 shadow-md shadow-indigo-600/15 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {monthlySubmissionCount >= MONTHLY_REQUEST_LIMIT ? (
                     <>

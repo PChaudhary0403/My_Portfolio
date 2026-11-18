@@ -7,13 +7,18 @@ import Goals from "./components/Goals";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ThemeToggle from "./components/ThemeToggle";
+import { ThemeProvider } from "./context/ThemeContext";
 
-export default function App() {
+function PortfolioContent() {
   return (
-    <div className="min-h-screen bg-[#030712] text-gray-100 flex flex-col font-sans antialiased overflow-x-hidden">
+    <div className="min-h-screen flex flex-col font-sans antialiased overflow-x-hidden bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
       {/* Navigation bar */}
       <Navbar />
-      
+
+      {/* Floating Theme Toggle Button */}
+      <ThemeToggle />
+
       {/* Portfolio Sections */}
       <main className="flex-grow">
         <Hero />
@@ -24,9 +29,17 @@ export default function App() {
         <Education />
         <Contact />
       </main>
-      
+
       {/* Footer information */}
       <Footer />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <PortfolioContent />
+    </ThemeProvider>
   );
 }

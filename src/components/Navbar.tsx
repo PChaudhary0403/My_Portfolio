@@ -3,19 +3,21 @@ import { Menu, X, Terminal } from "lucide-react";
 import { Github, Linkedin } from "./SocialIcons";
 import { portfolioData } from "../portfolioData";
 
+const NAV_LINKS = [
+  { label: "About", id: "about" },
+  { label: "Skills", id: "skills" },
+  { label: "Projects", id: "projects" },
+  { label: "Goals & Learning", id: "goals" },
+  { label: "Education", id: "education" },
+  { label: "Contact", id: "contact" },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  const navLinks = [
-    { label: "About", id: "about" },
-    { label: "Skills", id: "skills" },
-    { label: "Projects", id: "projects" },
-    { label: "Goals & Learning", id: "goals" },
-    { label: "Education", id: "education" },
-    { label: "Contact", id: "contact" },
-  ];
+  const navLinks = NAV_LINKS;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +29,7 @@ export default function Navbar() {
       }
 
       // Track active section
-      const sections = ["home", ...navLinks.map((link) => link.id)];
+      const sections = ["home", ...NAV_LINKS.map((link) => link.id)];
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -68,9 +70,9 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
         scrolled
-          ? "bg-[#030712]/85 backdrop-blur-md border-b border-gray-800/60 shadow-lg shadow-black/10 py-3"
+          ? "bg-white/85 dark:bg-[#030712]/85 backdrop-blur-md border-b border-gray-200/80 dark:border-gray-800/60 shadow-sm dark:shadow-lg dark:shadow-black/10 py-3"
           : "bg-transparent py-5"
       }`}
     >
@@ -81,12 +83,12 @@ export default function Navbar() {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-center space-x-2 group focus:outline-none cursor-pointer"
           >
-            <div className="p-2 rounded-lg bg-indigo-600/10 text-indigo-400 border border-indigo-500/20 group-hover:border-indigo-500/40 group-hover:bg-indigo-600/20 transition-all duration-300">
+            <div className="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-600/10 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20 group-hover:border-indigo-500/40 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-600/20 transition-all duration-300">
               <Terminal size={20} className="group-hover:rotate-6 transition-transform" />
             </div>
-            <span className="font-mono text-lg font-bold text-gray-100 group-hover:text-white transition-colors">
+            <span className="font-mono text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-indigo-600 dark:group-hover:text-white transition-colors">
               {portfolioData.name.toLowerCase()}
-              <span className="text-indigo-400">.dev()</span>
+              <span className="text-indigo-600 dark:text-indigo-400">.dev()</span>
             </span>
           </button>
 
@@ -97,27 +99,27 @@ export default function Navbar() {
                 <button
                   key={link.id}
                   onClick={() => handleNavClick(link.id)}
-                  className={`text-sm font-medium transition-all duration-200 hover:text-indigo-400 cursor-pointer relative py-1 focus:outline-none ${
+                  className={`text-sm font-medium transition-all duration-200 hover:text-indigo-600 dark:hover:text-indigo-400 cursor-pointer relative py-1 focus:outline-none ${
                     activeSection === link.id
-                      ? "text-indigo-400 font-semibold"
-                      : "text-gray-400"
+                      ? "text-indigo-600 dark:text-indigo-400 font-semibold"
+                      : "text-gray-600 dark:text-gray-400"
                   }`}
                 >
                   {link.label}
                   {activeSection === link.id && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-500 rounded-full animate-fade-in" />
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 dark:bg-indigo-500 rounded-full animate-fade-in" />
                   )}
                 </button>
               ))}
             </div>
 
             {/* Socials / Action */}
-            <div className="flex items-center space-x-4 border-l border-gray-800 pl-6">
+            <div className="flex items-center space-x-4 border-l border-gray-200 dark:border-gray-800 pl-6">
               <a
                 href={portfolioData.contact.github}
                 target="_blank"
                 rel="noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
                 aria-label="GitHub"
               >
                 <Github size={18} />
@@ -126,7 +128,7 @@ export default function Navbar() {
                 href={portfolioData.contact.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="text-gray-400 hover:text-[#0077b5] transition-colors"
+                className="text-gray-500 hover:text-[#0077b5] dark:text-gray-400 dark:hover:text-[#0077b5] transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={18} />
@@ -144,7 +146,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-colors focus:outline-none cursor-pointer"
+              className="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800/50 transition-colors focus:outline-none cursor-pointer"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -160,27 +162,27 @@ export default function Navbar() {
             : "max-h-0 opacity-0 invisible overflow-hidden"
         }`}
       >
-        <div className="px-4 pt-2 pb-6 space-y-3 bg-[#030712]/95 border-b border-gray-800/80 backdrop-blur-lg">
+        <div className="px-4 pt-2 pb-6 space-y-3 bg-white/95 dark:bg-[#030712]/95 border-b border-gray-200 dark:border-gray-800/80 backdrop-blur-lg shadow-lg dark:shadow-none">
           {navLinks.map((link) => (
             <button
               key={link.id}
               onClick={() => handleNavClick(link.id)}
               className={`block w-full text-left px-3 py-2.5 rounded-lg text-base font-medium transition-colors cursor-pointer ${
                 activeSection === link.id
-                  ? "bg-indigo-600/10 text-indigo-400 border-l-2 border-indigo-500 pl-2.5"
-                  : "text-gray-400 hover:text-white hover:bg-gray-800/30"
+                  ? "bg-indigo-50 text-indigo-600 border-l-2 border-indigo-600 dark:bg-indigo-600/10 dark:text-indigo-400 dark:border-indigo-500 pl-2.5"
+                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800/30"
               }`}
             >
               {link.label}
             </button>
           ))}
-          <div className="pt-4 border-t border-gray-800 flex items-center justify-between px-3">
+          <div className="pt-4 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between px-3">
             <div className="flex space-x-4">
               <a
                 href={portfolioData.contact.github}
                 target="_blank"
                 rel="noreferrer"
-                className="text-gray-400 hover:text-white p-2 hover:bg-gray-800/50 rounded-lg transition-colors"
+                className="text-gray-500 hover:text-gray-900 p-2 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800/50 rounded-lg transition-colors"
               >
                 <Github size={20} />
               </a>
@@ -188,7 +190,7 @@ export default function Navbar() {
                 href={portfolioData.contact.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="text-gray-400 hover:text-[#0077b5] p-2 hover:bg-gray-800/50 rounded-lg transition-colors"
+                className="text-gray-500 hover:text-[#0077b5] p-2 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-[#0077b5] dark:hover:bg-gray-800/50 rounded-lg transition-colors"
               >
                 <Linkedin size={20} />
               </a>
