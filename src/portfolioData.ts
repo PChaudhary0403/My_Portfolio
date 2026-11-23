@@ -232,8 +232,7 @@ export const portfolioData: PortfolioData = {
       liveUrl: "https://raahibooking.vercel.app/",
       category: "Full Stack",
       featured: false
-    }
-    
+    },
     {
       id:"proj6",
       title: "INSIGHT - Adaptive Health & Wellness App",
