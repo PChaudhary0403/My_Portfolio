@@ -19,7 +19,7 @@ export interface ProjectItem {
   technologies: string[];
   githubUrl: string;
   liveUrl: string;
-  category: 'Full Stack' | 'Frontend' | 'Mobile' | 'Systems';
+  category: 'Full Stack' | 'Frontend' | 'Mobile App' | 'Systems';
   featured: boolean;
 }
 
@@ -233,6 +233,34 @@ export const portfolioData: PortfolioData = {
       category: "Full Stack",
       featured: false
     }
+    
+    {
+      id:"proj6",
+      title: "INSIGHT - Adaptive Health & Wellness App",
+      description:
+        "A personal health and wellness companion that combines daily planning, habit tracking, productivity insights, and digital wellness monitoring to help users build healthier routines.",
+    
+      longDescription:
+        "INSIGHT is a Flutter-based adaptive wellness application designed to help users improve their daily routines through structured planning and behavioral insights. It includes a daily task planner, activity tick sheet, discipline tracking, productivity scoring, and a digital wellness module that monitors screen time and generates behavioral insights. The application also supports personalized reminders, progress visualization, persistent local storage, and light/dark themes, bringing multiple aspects of personal well-being into one platform.",
+    
+      technologies: [
+        "Flutter",
+        "Dart",
+        "BLoC",
+        "Shared Preferences",
+        "Flutter Local Notifications",
+        "Fl Chart",
+        "Go Router",
+        "Dio"
+      ],
+    
+      category: "Mobile App",
+      featured: false,
+    
+      liveUrl: "https://insight-fitness.vercel.app/",
+      githubUrl: "https://github.com/PChaudhary0403/Insight_Fitness"
+    }
+    
     
   ],
 
