@@ -189,7 +189,7 @@ export const portfolioData: PortfolioData = {
       githubUrl: "https://github.com/PChaudhary0403/BreastCancerdetection",
       liveUrl: "https://breast-cancerdetection.vercel.app/",
       category: "Systems",
-      featured: false
+      featured: true
     },
     {
       id: "proj4",
@@ -209,7 +209,7 @@ export const portfolioData: PortfolioData = {
       githubUrl: "https://github.com/PChaudhary0403/public_portal",
       liveUrl: "https://public-portal-five.vercel.app/",
       category: "Full Stack",
-      featured: true
+      featured: false
     },
     
     {
@@ -231,7 +231,7 @@ export const portfolioData: PortfolioData = {
       githubUrl: "https://github.com/PChaudhary0403/RideBookingSystem",
       liveUrl: "https://raahibooking.vercel.app/",
       category: "Full Stack",
-      featured: false
+      featured: true
     },
     {
       id:"proj6",
