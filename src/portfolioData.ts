@@ -1,3 +1,4 @@
+
 import avatarImg from "./assets/Screenshot.png";
 
 export interface EducationItem {
@@ -176,7 +177,7 @@ export const portfolioData: PortfolioData = {
       ],
       githubUrl: "https://github.com/placeholder/chessmaster",
       liveUrl: "https://ai-chess-dun.vercel.app/",
-      category: "Frontend",
+      category: "Full Stack",
       featured: true
     },
     {
@@ -210,6 +211,29 @@ export const portfolioData: PortfolioData = {
       category: "Full Stack",
       featured: true
     },
+    
+    {
+      id: "proj5",
+      title: "Raahi - Travel Companion Web App",
+      description: "A full-stack ride-booking platform that connects passengers with drivers, enabling users to book rides, track drivers in real time, and choose drivers based on their preferences for a more reliable and comfortable travel experience.",
+      longDescription: "Raahi is a full-stack ride-booking application designed to simplify and personalize the travel experience. The platform allows passengers to book rides by selecting pickup and destination locations, viewing routes through Google Maps integration, and connecting with available drivers. It features separate user and driver interfaces, role-based authentication, real-time driver location tracking, and interactive ride management. Built with FastAPI and PostgreSQL, the system integrates Supabase for backend services and Google Maps APIs for location-based functionality. Raahi focuses on providing a reliable, transparent, and user-centric transportation experience by allowing passengers to choose drivers based on their preferences and travel requirements.",
+      technologies: [
+        "React",
+        "TypeScript",
+        "FastAPI",
+        "Python",
+        "PostgreSQL",
+        "Supabase",
+        "Google Maps API",
+        "WebSockets",
+        "JWT Authentication"
+      ],
+      githubUrl: "https://github.com/PChaudhary0403/RideBookingSystem",
+      liveUrl: "https://raahibooking.vercel.app/",
+      category: "Full Stack",
+      featured: false
+    }
+    
   ],
 
   careerGoals: {
