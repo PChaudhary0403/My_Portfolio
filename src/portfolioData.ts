@@ -69,7 +69,7 @@ export const portfolioData: PortfolioData = {
   bio: "A passionate Computer Science student focusing on modern web architecture, cloud systems, and user-centric design. Seeking internship and junior engineering opportunities to apply academic foundations to real-world engineering challenges.",
 
   aboutDetails: {
-    story: "I'm currently pursuing my Bachelor's degree in Computer Science. My journey into programming started with building small script calculators and automating tasks, which quickly blossomed into a deep love for web engineering and systems design. I thrive in collaborative envionments and love learning new technologies, debugging complex problems, and designing clean user experiences.",
+    story: "I'm an Electronics and Computer Science graduate with a strong interest in software engineering, backend systems, and AI-driven applications. My journey into programming began with small scripts and automation, gradually evolving into building full-stack applications and exploring how complex systems work behind the scenes.I enjoy breaking down problems, experimenting with new technologies, and turning ideas into functional products.I'm particularly interested in system design, scalable architectures, and building software where thoughtful engineering meets practical utility.",
     avatarUrl: avatarImg, // High quality professional placeholder avatar
 
     quickStats: [
