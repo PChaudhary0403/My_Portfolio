@@ -202,7 +202,7 @@ export default function Contact() {
             <div className="space-y-3">
               <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">Have an interesting project?</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed">
-                Whether you have an internship position, a freelance project, or just want to say hi, feel free to drop a message or connect through my social handles. I'll get back to you as soon as possible!
+                Whether you have an internship position, a Job role, or just want to say hi, feel free to drop a message or connect through my social handles. I'll get back to you as soon as possible!
               </p>
             </div>
 
@@ -352,7 +352,7 @@ export default function Contact() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="Internship / Freelance Opportunities"
+                    placeholder="Internship / Job Opportunities"
                     className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-gray-950 border text-sm text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-indigo-500 transition-colors shadow-sm dark:shadow-none ${
                       errors.subject ? "border-red-500" : "border-gray-200 dark:border-gray-800"
                     }`}

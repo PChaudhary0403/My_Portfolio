@@ -32,7 +32,7 @@ export default function Hero() {
         <div className="lg:col-span-7 space-y-6 text-left">
           {/* Status Badge */}
           <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/30 text-indigo-700 dark:text-indigo-300 text-xs font-mono">
-            <span>Open for Internship & Freelance Opportunities</span>
+            <span>Open for Internship & Job Opportunities</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white">
