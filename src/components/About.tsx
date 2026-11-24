@@ -88,7 +88,7 @@ export default function About() {
 
             {/* Quote / Highlight */}
             <div className="p-4 rounded-xl bg-indigo-50/70 dark:bg-indigo-950/20 border-l-4 border-indigo-600 dark:border-indigo-500 text-gray-700 dark:text-gray-300 text-sm italic">
-              "Great developers are not born; they are compiled one project at a time."
+              "Every program starts with a tiny process."
             </div>
           </div>
         </div>
