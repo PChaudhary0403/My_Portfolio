@@ -281,7 +281,7 @@ export const portfolioData: PortfolioData = {
       status: "In Progress"
     },
     {
-      topic: "AWS Cloud Practitioner & Architecture",
+      topic: "AWS Cloud & Architecture",
       description: "Preparing for AWS Certified Cloud Practitioner. Learning serverless compute (Lambda), VPC configurations, and IAM controls.",
       iconName: "CloudLightning",
       status: "In Progress"
