@@ -83,7 +83,7 @@ export const portfolioData: PortfolioData = {
     {
       degree: "Bachelor of Science",
       major: "Electronics and Computer Science Engineering",
-      institution: "Thakur College of Enginnering and Technology",
+      institution: "Thakur College of Engineering and Technology",
       period: "Sep 2022 - May 2026",
       gpa: "7.71 / 10.0",
       courses: [
